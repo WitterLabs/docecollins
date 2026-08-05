@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Doce Collin's | Brownies &amp; Cookies artesanais</title>
+<meta name="description" content="Cookies gigantes recheados na hora: Nutella, Red Velvet com Ninho, Pistache e Kinder Bueno. Peça pelo WhatsApp e receba em casa.">
+<meta property="og:title" content="Doce Collin's | Brownies &amp; Cookies artesanais">
+<meta property="og:description" content="Massa macia por fora, recheio cremoso escorrendo por dentro. Peça pelo WhatsApp.">
+<meta property="og:image" content="pistache.jpg">
+<link rel="icon" href="logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,600&family=Manrope:wght@400;500;600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --cacau:#241410;
+  --cacau2:#33201A;
+  --cacau3:#432A22;
+  --creme:#FBF2E2;
+  --creme-2:#F2E4CC;
+  --caramelo:#E3A24C;
+  --velvet:#B22B3E;
+  --pistache:#97A85B;
+  --radius:22px;
+  --max:1120px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--cacau);
+  color:var(--creme);
+  font-family:'Manrope',system-ui,sans-serif;
+  font-size:17px;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+
+/* ---------- tipografia ---------- */
+h1,h2,h3{
+  font-family:'Fraunces',Georgia,serif;
+  font-variation-settings:'SOFT' 40,'WONK' 1;
+  line-height:1.02;
+  letter-spacing:-.02em;
+  font-weight:700;
+}
+h1{font-size:clamp(2.6rem,9vw,4.6rem)}
+h2{font-size:clamp(2rem,6.2vw,3.2rem)}
+h3{font-size:clamp(1.35rem,4vw,1.7rem)}
+.eyebrow{
+  font-family:'Manrope',sans-serif;
+  font-size:.72rem;font-weight:800;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--caramelo);
+}
+.lead{font-size:clamp(1.02rem,2.6vw,1.18rem);color:#E9DAC4}
+
+/* ---------- botões ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--caramelo);color:#2A1509;
+  font-weight:800;font-size:1rem;
+  padding:16px 28px;border-radius:999px;
+  border:0;cursor:pointer;
+  box-shadow:0 10px 0 -4px rgba(0,0,0,.35);
+  transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+}
+.btn:hover{transform:translateY(-3px);background:#EEB35F;box-shadow:0 16px 0 -6px rgba(0,0,0,.35)}
+.btn:active{transform:translateY(0)}
+.btn--ghost{
+  background:transparent;color:var(--creme);
+  border:1.5px solid rgba(251,242,226,.35);box-shadow:none;
+}
+.btn--ghost:hover{background:rgba(251,242,226,.08);border-color:var(--creme)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--pistache);outline-offset:3px;border-radius:8px}
+
+/* ---------- topo ---------- */
+.topbar{
+  position:sticky;top:0;z-index:60;
+  background:rgba(36,20,16,.86);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid rgba(251,242,226,.1);
+}
+.topbar__in{display:flex;align-items:center;justify-content:space-between;height:64px}
+.brand{display:flex;align-items:center;gap:10px;font-family:'Fraunces',serif;font-weight:900;font-size:1.22rem;letter-spacing:-.02em}
+.brand img{width:38px;height:38px;border-radius:50%;flex:0 0 auto}
+.brand__txt{display:inline-block}
+.brand span{color:var(--caramelo)}
+.topbar .btn{padding:11px 20px;font-size:.9rem;box-shadow:none}
+
+/* ---------- hero ---------- */
+.hero{position:relative;padding:56px 0 40px;overflow:hidden}
+.hero::before{
+  content:"";position:absolute;inset:-30% -20% auto -20%;height:80%;
+  background:radial-gradient(60% 60% at 50% 40%,rgba(227,162,76,.20),transparent 70%);
+  pointer-events:none;
+}
+.hero__grid{display:grid;gap:34px;align-items:center}
+.hero__badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(151,168,91,.16);border:1px solid rgba(151,168,91,.4);
+  color:#CFD9A6;font-size:.78rem;font-weight:700;letter-spacing:.06em;
+  padding:7px 14px;border-radius:999px;text-transform:uppercase;
+}
+.hero h1{margin:18px 0 16px}
+.hero h1 em{
+  font-style:italic;color:var(--caramelo);
+  font-variation-settings:'SOFT' 60,'WONK' 1;
+}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.hero__facts{
+  display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;
+  font-size:.86rem;color:#CDBBA0;font-weight:600;
+}
+.hero__facts span{display:flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--pistache);flex:0 0 auto}
+
+.hero__shot{position:relative;justify-self:center;width:min(420px,88vw)}
+.hero__shot img{
+  border-radius:50%;aspect-ratio:1;object-fit:cover;
+  border:8px solid var(--cacau2);
+  box-shadow:0 30px 70px rgba(0,0,0,.55);
+}
+.hero__ring{
+  position:absolute;inset:-16px;border-radius:50%;
+  border:1.5px dashed rgba(227,162,76,.45);
+  animation:spin 46s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero__tag{
+  position:absolute;right:-6px;bottom:16px;
+  background:var(--velvet);color:#fff;
+  font-family:'Fraunces',serif;font-weight:900;
+  padding:14px 20px;border-radius:16px;
+  transform:rotate(-7deg);
+  box-shadow:0 12px 26px rgba(0,0,0,.45);
+  text-align:center;line-height:1.05;
+}
+.hero__tag small{display:block;font-family:'Manrope',sans-serif;font-size:.62rem;letter-spacing:.16em;font-weight:800;opacity:.85}
+.hero__tag b{font-size:1.5rem}
+
+/* ---------- fita ---------- */
+.ribbon{
+  background:var(--caramelo);color:#2A1509;
+  padding:13px 0;overflow:hidden;white-space:nowrap;
+  border-top:2px solid #2A1509;border-bottom:2px solid #2A1509;
+}
+.ribbon__track{display:inline-flex;gap:0;animation:slide 28s linear infinite;will-change:transform}
+.ribbon:hover .ribbon__track{animation-play-state:paused}
+.ribbon i{
+  font-style:normal;font-family:'Fraunces',serif;font-weight:900;
+  font-size:1.02rem;letter-spacing:.01em;padding:0 22px;
+  display:inline-flex;align-items:center;gap:22px;
+}
+.ribbon i::after{content:"";width:9px;height:9px;border-radius:50%;background:#2A1509;display:inline-block}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- seções ---------- */
+section{padding:74px 0}
+.sec-head{max-width:640px;margin-bottom:40px}
+.sec-head h2{margin:12px 0 14px}
+
+/* pilares */
+.pillars{background:var(--cacau2)}
+.pillars__grid{display:grid;gap:18px}
+.pillar{
+  background:var(--cacau);border:1px solid rgba(251,242,226,.09);
+  border-radius:var(--radius);padding:28px 24px;
+}
+.pillar__n{
+  font-family:'Fraunces',serif;font-weight:900;font-size:1.1rem;
+  color:var(--cacau);background:var(--pistache);
+  width:40px;height:40px;border-radius:12px;
+  display:flex;align-items:center;justify-content:center;margin-bottom:16px;
+}
+.pillar h3{font-size:1.22rem;margin-bottom:8px}
+.pillar p{color:#C9B79E;font-size:.96rem}
+
+/* cardápio */
+.menu__grid{display:grid;gap:26px}
+.card{
+  background:var(--cacau2);
+  border:1px solid rgba(251,242,226,.1);
+  border-radius:var(--radius);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .25s ease,border-color .25s ease;
+}
+.card:hover{transform:translateY(-6px);border-color:rgba(227,162,76,.55)}
+.card__pic{position:relative;aspect-ratio:1;overflow:hidden;background:var(--cacau3)}
+.card__pic img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.card:hover .card__pic img{transform:scale(1.06)}
+.card__price{
+  position:absolute;left:14px;bottom:14px;
+  background:var(--creme);color:#2A1509;
+  font-family:'Fraunces',serif;font-weight:900;font-size:1.14rem;
+  padding:8px 15px;border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,.4);
+}
+.card__flag{
+  position:absolute;right:14px;top:14px;
+  background:var(--velvet);color:#fff;
+  font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  padding:6px 12px;border-radius:999px;
+}
+.card__body{padding:24px 22px 26px;display:flex;flex-direction:column;flex:1}
+.card__body h3{margin-bottom:10px}
+.card__body p{color:#C9B79E;font-size:.94rem;flex:1}
+.card__body .btn{margin-top:20px;align-self:flex-start;padding:13px 22px;font-size:.92rem}
+
+/* caixa */
+.box{background:var(--cacau2)}
+.box__card{
+  border:1.5px dashed rgba(227,162,76,.5);
+  border-radius:var(--radius);
+  padding:38px 26px;text-align:center;
+}
+.box__card h2{margin:12px 0 14px}
+.box__card p{color:#C9B79E;max-width:520px;margin:0 auto 26px}
+.box__list{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:28px;
+  font-size:.84rem;font-weight:700;
+}
+.box__list span{background:rgba(251,242,226,.07);border:1px solid rgba(251,242,226,.14);padding:8px 15px;border-radius:999px}
+
+/* prova social */
+.notes__grid{display:grid;gap:18px}
+.note{
+  background:var(--cacau2);border:1px solid rgba(251,242,226,.1);
+  border-radius:var(--radius);padding:26px 24px;
+}
+.note__stars{color:var(--caramelo);letter-spacing:3px;font-size:.95rem;margin-bottom:12px}
+.note p{font-family:'Fraunces',serif;font-size:1.06rem;line-height:1.45;margin-bottom:16px}
+.note cite{font-style:normal;font-size:.84rem;color:#B7A489;font-weight:700}
+
+/* pedido */
+.steps{background:var(--cacau2)}
+.steps__grid{display:grid;gap:18px;counter-reset:s}
+.step{padding:26px 24px;border-radius:var(--radius);background:var(--cacau);border:1px solid rgba(251,242,226,.09)}
+.step::before{
+  counter-increment:s;content:counter(s);
+  font-family:'Fraunces',serif;font-weight:900;font-size:2.2rem;
+  color:var(--caramelo);display:block;line-height:1;margin-bottom:12px;
+}
+.step h3{font-size:1.15rem;margin-bottom:8px}
+.step p{color:#C9B79E;font-size:.94rem}
+
+/* final */
+.final{text-align:center;position:relative}
+.final::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(50% 60% at 50% 40%,rgba(178,43,62,.28),transparent 70%);
+  pointer-events:none;
+}
+.final h2{margin:14px auto 16px;max-width:14ch}
+.final p{color:#C9B79E;max-width:460px;margin:0 auto 30px}
+
+/* rodapé */
+footer{background:#1A0D0A;padding:46px 0 40px;border-top:1px solid rgba(251,242,226,.08)}
+.foot{display:grid;gap:22px;align-items:center}
+.foot__links{display:flex;flex-wrap:wrap;gap:18px;font-size:.9rem;font-weight:600;color:#C9B79E}
+.foot__links a:hover{color:var(--caramelo)}
+.foot__fine{font-size:.78rem;color:#8A7A69}
+
+/* whatsapp flutuante */
+.float{
+  position:fixed;right:16px;bottom:16px;z-index:70;
+  display:flex;align-items:center;gap:9px;
+  background:#25D366;color:#08351A;font-weight:800;font-size:.92rem;
+  padding:14px 20px;border-radius:999px;
+  box-shadow:0 12px 30px rgba(0,0,0,.5);
+  transition:transform .2s ease;
+}
+.float:hover{transform:scale(1.05)}
+.float svg{width:20px;height:20px;fill:#08351A}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+
+@media(min-width:760px){
+  .hero{padding:80px 0 56px}
+  .hero__grid{grid-template-columns:1.05fr .95fr;gap:50px}
+  .pillars__grid{grid-template-columns:repeat(3,1fr)}
+  .menu__grid{grid-template-columns:repeat(2,1fr)}
+  .notes__grid{grid-template-columns:repeat(3,1fr)}
+  .steps__grid{grid-template-columns:repeat(3,1fr)}
+  .foot{grid-template-columns:1fr auto}
+  section{padding:96px 0}
+  .box__card{padding:56px 40px}
+}
+@media(min-width:1040px){
+  .menu__grid{grid-template-columns:repeat(4,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+  html{scroll-behavior:auto}
+}
+
+/* ================= PEDIDO NA PÁGINA ================= */
+.pedido{background:var(--cacau2);scroll-margin-top:70px}
+.ped__grid{display:grid;gap:26px;align-items:start}
+.ped__box{
+  background:var(--cacau);border:1px solid rgba(251,242,226,.1);
+  border-radius:var(--radius);padding:26px 22px;
+}
+.ped__box h3{font-size:1.25rem;margin-bottom:4px}
+.ped__box > p.hint{font-size:.9rem;color:#B7A489;margin-bottom:6px}
+.ped__box + .ped__box{margin-top:18px}
+
+.ped__line{
+  display:flex;align-items:center;gap:12px;padding:13px 0;
+  border-bottom:1px solid rgba(251,242,226,.09);
+}
+.ped__line:last-child{border-bottom:0}
+.ped__line img{width:58px;height:58px;border-radius:14px;object-fit:cover;flex:0 0 auto}
+.ped__line-txt{flex:1;min-width:0}
+.ped__line-txt b{display:block;font-size:.95rem;font-weight:800;line-height:1.25}
+.ped__line-txt span{font-size:.85rem;color:#B7A489}
+.qty{display:flex;align-items:center;gap:4px;flex:0 0 auto}
+.qty button{
+  width:36px;height:36px;border-radius:11px;border:1px solid rgba(251,242,226,.2);
+  background:transparent;color:var(--creme);font-size:1.15rem;line-height:1;cursor:pointer;font-weight:700;
+}
+.qty button:hover{background:rgba(251,242,226,.1)}
+.qty b{min-width:28px;text-align:center;font-size:1.02rem;font-weight:800}
+
+label.f{display:block;margin:16px 0 0}
+label.f > span{display:block;font-size:.76rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#B7A489;margin-bottom:7px}
+.f input,.f textarea{
+  width:100%;background:var(--cacau2);color:var(--creme);
+  border:1px solid rgba(251,242,226,.18);border-radius:14px;
+  padding:14px 15px;font-family:'Manrope',sans-serif;font-size:1rem;
+}
+.f input:focus,.f textarea:focus{outline:2px solid var(--caramelo);outline-offset:1px;border-color:transparent}
+.f textarea{resize:vertical;min-height:100px}
+.f input::placeholder,.f textarea::placeholder{color:#7C6C5C}
+
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.pick--3{grid-template-columns:repeat(3,1fr)}
+.pick button{
+  background:var(--cacau2);border:1.5px solid rgba(251,242,226,.16);
+  color:var(--creme);border-radius:16px;padding:15px 8px;cursor:pointer;
+  font-family:'Manrope',sans-serif;font-weight:800;font-size:.92rem;
+  display:flex;flex-direction:column;align-items:center;gap:5px;transition:all .18s ease;
+}
+.pick button small{font-weight:600;font-size:.72rem;color:#A08F7C}
+.pick button:hover{border-color:rgba(227,162,76,.6)}
+.pick button.is-on{border-color:var(--caramelo);background:rgba(227,162,76,.14)}
+.pick button.is-on small{color:#D7BE9A}
+
+.ped__note{
+  margin-top:16px;padding:14px 16px;border-radius:14px;
+  background:rgba(151,168,91,.12);border:1px solid rgba(151,168,91,.35);
+  font-size:.9rem;color:#D3DCB3;
+}
+.ped__err{margin-top:16px;color:#F2A0AC;font-size:.9rem;font-weight:700;display:none}
+.ped__err.is-on{display:block}
+[hidden]{display:none!important}
+
+.resumo{position:sticky;top:84px}
+.resumo__list{margin:14px 0 0;font-size:.92rem;color:#C9B79E}
+.resumo__list div{display:flex;justify-content:space-between;gap:14px;padding:6px 0;border-bottom:1px solid rgba(251,242,226,.07)}
+.resumo__list div:last-child{border-bottom:0}
+.resumo__list span:last-child{color:var(--creme);font-weight:700;text-align:right}
+.resumo__total{
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;
+  margin-top:18px;padding-top:16px;border-top:1px solid rgba(251,242,226,.14);
+}
+.resumo__total span{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:#B7A489;font-weight:800}
+.resumo__total b{font-family:'Fraunces',serif;font-size:2rem;letter-spacing:-.02em}
+#pedEnviar{width:100%;justify-content:center;margin-top:18px;background:#25D366;color:#08351A}
+#pedEnviar:hover{background:#33e074}
+.resumo__fine{margin-top:12px;font-size:.78rem;color:#8A7A69;text-align:center}
+
+.float__badge{
+  position:absolute;top:-6px;right:-4px;min-width:23px;height:23px;
+  background:var(--velvet);color:#fff;border-radius:999px;
+  font-size:.74rem;font-weight:800;display:flex;align-items:center;justify-content:center;
+  padding:0 6px;border:2px solid var(--cacau);
+}
+
+@media(min-width:860px){
+  .ped__grid{grid-template-columns:1.35fr .9fr;gap:30px}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__in">
+    <a class="brand" href="#topo"><img src="logo.png" alt="Doce Collin's"><span class="brand__txt">Doce <span>Collin's</span></span></a>
+    <a class="btn" href="#cardapio">Ver cardápio</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="topo">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="hero__badge"><span class="dot"></span> Feito no dia · entrega quentinho</span>
+      <h1>O cookie que <em>escorre</em> na primeira mordida.</h1>
+      <p class="lead">Massa artesanal, crocante por fora e macia por dentro, com recheio cremoso de verdade. Não é gota de chocolate, é recheio escorrendo.</p>
+      <div class="hero__cta">
+        <a class="btn" href="#" data-pedir>Pedir no WhatsApp</a>
+        <a class="btn btn--ghost" href="#cardapio">Ver sabores e preços</a>
+      </div>
+      <div class="hero__facts">
+        <span><span class="dot"></span> 4 sabores fixos</span>
+        <span><span class="dot"></span> A partir de R$ 12</span>
+        <span><span class="dot"></span> Entrega e retirada</span>
+      </div>
+    </div>
+    <div class="hero__shot">
+      <div class="hero__ring" aria-hidden="true"></div>
+      <img src="pistache.jpg" alt="Cookie de pistache partido ao meio com recheio cremoso escorrendo">
+      <div class="hero__tag"><small>a partir de</small><b>R$ 12</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- FITA -->
+<div class="ribbon" aria-hidden="true">
+  <div class="ribbon__track">
+    <i>Nutella</i><i>Red Velvet com Ninho</i><i>Pistache</i><i>Kinder Bueno</i><i>Recheio cremoso</i><i>Feito no dia</i>
+    <i>Nutella</i><i>Red Velvet com Ninho</i><i>Pistache</i><i>Kinder Bueno</i><i>Recheio cremoso</i><i>Feito no dia</i>
+  </div>
+</div>
+
+<!-- PILARES -->
+<section class="pillars">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Por que viciam</span>
+      <h2>Cookie grande, recheio generoso, sem economia.</h2>
+    </div>
+    <div class="pillars__grid">
+      <article class="pillar rv">
+        <div class="pillar__n">01</div>
+        <h3>Massa feita à mão</h3>
+        <p>Manteiga de verdade, baunilha e chocolate nobre. Assado no dia para chegar com aquela borda crocante e o miolo macio.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="pillar__n">02</div>
+        <h3>Recheio até a borda</h3>
+        <p>Nutella original, brigadeiro de Ninho, creme de pistache, creme Bueno com pedaço de Kinder no centro. Você vê no corte.</p>
+      </article>
+      <article class="pillar rv">
+        <div class="pillar__n">03</div>
+        <h3>Chega inteiro</h3>
+        <p>Embalagem individual que protege o cookie no trajeto, bonito o suficiente para presentear e dar aquele post no story.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CARDÁPIO -->
+<section id="cardapio">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Cardápio</span>
+      <h2>Escolha o seu recheio.</h2>
+      <p class="lead">Toque em “Pedir” e a mensagem já vai pronta no WhatsApp com o sabor escolhido.</p>
+    </div>
+
+    <div class="menu__grid">
+
+      <article class="card rv">
+        <div class="card__pic">
+          <img src="nutella.jpg" alt="Cookie recheado com Nutella partido ao meio" loading="lazy">
+          <span class="card__flag">Mais pedido</span>
+          <span class="card__price">R$ 13,00</span>
+        </div>
+        <div class="card__body">
+          <h3>Cookie Nutella</h3>
+          <p>Cookie tradicional, macio e cheio de gotas de chocolate, com recheio generoso de Nutella original. Aquele sabor de avelã com chocolate que derrete na boca.</p>
+          <a class="btn" href="#" data-add="nutella">Adicionar ao pedido</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card__pic">
+          <img src="red-velvet.jpg" alt="Cookie red velvet recheado com brigadeiro de Ninho" loading="lazy">
+          <span class="card__price">R$ 12,00</span>
+        </div>
+        <div class="card__body">
+          <h3>Red Velvet com Ninho</h3>
+          <p>Massa macia com baunilha, cacau 50% e o toque clássico do red velvet, finalizada com gotas de chocolate branco e recheada com brigadeiro de Ninho cremoso.</p>
+          <a class="btn" href="#" data-add="redvelvet">Adicionar ao pedido</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card__pic">
+          <img src="pistache.jpg" alt="Cookie de pistache com recheio cremoso verde" loading="lazy">
+          <span class="card__price">R$ 16,50</span>
+        </div>
+        <div class="card__body">
+          <h3>Cookie Pistache</h3>
+          <p>Massa amanteigada com toque de baunilha, gotas de chocolate branco e recheio cremoso de pistache. Finalizado com grãos crocantes por cima.</p>
+          <a class="btn" href="#" data-add="pistache">Adicionar ao pedido</a>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card__pic">
+          <img src="kinder-bueno.jpg" alt="Cookie Kinder Bueno recheado com creme de avelã" loading="lazy">
+          <span class="card__flag">Especial</span>
+          <span class="card__price">R$ 17,00</span>
+        </div>
+        <div class="card__body">
+          <h3>Cookie Kinder Bueno</h3>
+          <p>Gotas de chocolate preto e branco, recheio de creme Bueno à base de avelã e leite, com um pedaço de Kinder no centro. Finalizado com dois pedaços por cima.</p>
+          <a class="btn" href="#" data-add="kinder">Adicionar ao pedido</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- CAIXA -->
+<section class="box">
+  <div class="wrap">
+    <div class="box__card rv">
+      <span class="eyebrow">Para dividir (ou não)</span>
+      <h2>Monte sua caixa com os 4 sabores</h2>
+      <p>Não consegue escolher? Leve um de cada e descubra o seu preferido. Ideal para presentear, levar no trabalho ou fechar o rodízio de sabores em casa.</p>
+      <div class="box__list">
+        <span>Nutella</span><span>Red Velvet com Ninho</span><span>Pistache</span><span>Kinder Bueno</span>
+      </div>
+      <a class="btn" href="#" data-add-todos>Montar minha caixa</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Quem provou</span>
+      <h2>O recado de quem já pediu.</h2>
+    </div>
+    <div class="notes__grid">
+      <!-- SUBSTITUA pelos comentários reais dos seus clientes -->
+      <article class="note rv">
+        <div class="note__stars">★★★★★</div>
+        <p>“Cole aqui o comentário real de um cliente sobre o recheio ou a entrega.”</p>
+        <cite>Nome do cliente · sabor pedido</cite>
+      </article>
+      <article class="note rv">
+        <div class="note__stars">★★★★★</div>
+        <p>“Cole aqui outro elogio recebido no direct ou no WhatsApp.”</p>
+        <cite>Nome do cliente · sabor pedido</cite>
+      </article>
+      <article class="note rv">
+        <div class="note__stars">★★★★★</div>
+        <p>“Cole aqui um terceiro depoimento, de preferência de quem repetiu o pedido.”</p>
+        <cite>Nome do cliente · sabor pedido</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COMO PEDIR -->
+<section class="steps">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Como pedir</span>
+      <h2>Três passos e o cookie sai do forno.</h2>
+    </div>
+    <div class="steps__grid">
+      <article class="step rv">
+        <h3>Escolha os sabores</h3>
+        <p>Defina quantos cookies e de quais recheios você quer levar.</p>
+      </article>
+      <article class="step rv">
+        <h3>Preencha o pedido aqui</h3>
+        <p>Seus dados e a forma de pagamento em um formulário rápido, na própria página.</p>
+      </article>
+      <article class="step rv">
+        <h3>Receba ou retire</h3>
+        <p>Entregamos na sua porta ou você retira no horário combinado.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAÇA SEU PEDIDO -->
+<section class="pedido" id="pedido">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Produção limitada por dia</span>
+      <h2>Faça seu pedido.</h2>
+      <p class="lead">Preencha aqui e o pedido chega pronto no nosso WhatsApp, com itens, endereço e forma de pagamento.</p>
+    </div>
+
+    <div class="ped__grid">
+
+      <div>
+        <div class="ped__box rv">
+          <h3>1. Seus cookies</h3>
+          <p class="hint">Escolha as quantidades.</p>
+          <div id="pedItens"></div>
+        </div>
+
+        <div class="ped__box rv">
+          <h3>2. Entrega ou retirada</h3>
+          <label class="f"><span>Seu nome</span>
+            <input type="text" id="fNome" placeholder="Como podemos te chamar?" autocomplete="name">
+          </label>
+          <div class="pick" id="fTipo">
+            <button type="button" class="is-on" data-tipo="Entrega">Entrega<small>receber em casa</small></button>
+            <button type="button" data-tipo="Retirada">Retirada<small>buscar no local</small></button>
+          </div>
+          <div id="blocoEndereco">
+            <label class="f"><span>Endereço</span>
+              <input type="text" id="fEndereco" placeholder="Rua, número e complemento" autocomplete="street-address">
+            </label>
+            <label class="f"><span>Bairro</span>
+              <input type="text" id="fBairro" placeholder="Seu bairro">
+            </label>
+            <p class="ped__note">O valor da entrega é confirmado na conversa do WhatsApp, de acordo com o seu bairro.</p>
+          </div>
+          <p class="ped__note" id="notaRetirada" hidden>Combinamos o horário da retirada pelo WhatsApp assim que recebermos o pedido.</p>
+        </div>
+
+        <div class="ped__box rv" id="boxPagamento">
+          <h3>3. Pagamento</h3>
+          <p class="hint">Como você prefere pagar a entrega.</p>
+          <div class="pick pick--3" id="fPgto">
+            <button type="button" data-pg="Pix">Pix</button>
+            <button type="button" data-pg="Cartão">Cartão</button>
+            <button type="button" data-pg="Dinheiro">Dinheiro</button>
+          </div>
+          <div id="blocoTroco" hidden>
+            <label class="f"><span>Precisa de troco?</span></label>
+            <div class="pick" id="fTroco">
+              <button type="button" data-troco="sim">Sim</button>
+              <button type="button" data-troco="nao">Não precisa</button>
+            </div>
+            <label class="f" id="blocoTrocoValor" hidden><span>Troco para quanto?</span>
+              <input type="text" id="fTrocoValor" inputmode="decimal" placeholder="Ex: 50,00">
+            </label>
+          </div>
+        </div>
+
+        <div class="ped__box rv" id="boxRetirada" hidden>
+          <h3>3. Pagamento</h3>
+          <p class="ped__note" style="margin-top:12px">Você acerta o pagamento na hora da retirada. Aceitamos Pix, cartão e dinheiro.</p>
+        </div>
+
+        <div class="ped__box rv">
+          <h3>4. Informações adicionais</h3>
+          <label class="f"><span>Observações do pedido</span>
+            <textarea id="fObs" placeholder="Ponto de referência, horário preferido, alguma alergia, embrulho para presente..."></textarea>
+          </label>
+        </div>
+      </div>
+
+      <aside class="ped__box resumo rv">
+        <h3>Resumo</h3>
+        <div class="resumo__list" id="pedResumo"></div>
+        <div class="resumo__total"><span>Total</span><b id="pedTotal">R$ 0,00</b></div>
+        <button class="btn" type="button" id="pedEnviar">Enviar pedido no WhatsApp</button>
+        <p class="ped__err" id="pedErro"></p>
+        <p class="resumo__fine">Assamos por encomenda e em quantidade limitada por dia.</p>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div>
+      <div class="brand" style="margin-bottom:10px"><img src="logo.png" alt=""><span class="brand__txt">Doce <span>Collin's</span></span></div>
+      <div class="foot__links">
+        <a href="https://www.instagram.com/docecollins" target="_blank" rel="noopener">@docecollins</a>
+        <a href="#cardapio">Cardápio</a>
+        <a href="#" data-wa="Oi! Quero tirar uma dúvida sobre os cookies 🍪">WhatsApp</a>
+      </div>
+    </div>
+    <p class="foot__fine">© <span id="ano"></span> Doce Collin's · Brownies &amp; Cookies artesanais</p>
+  </div>
+</footer>
+
+
+<a class="float" href="#" data-pedir aria-label="Pedir pelo WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2-1-.3-.1-.5-.2-.7.1-.2.3-.7 1-.9 1.2-.2.2-.3.2-.6.1-.3-.2-1.3-.5-2.4-1.5-.9-.8-1.5-1.8-1.7-2.1-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5 0-.2 0-.4 0-.5 0-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.4.7.3 1.3.5 1.7.6.7.2 1.3.2 1.8.1.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.4 1.3 4.9L2 22l5.3-1.4c1.4.8 3 1.2 4.7 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/></svg>
+  Pedir agora
+  <span class="float__badge" id="floatBadge" hidden>0</span>
+</a>
+
+<script>
+/* ===========================================================
+   WhatsApp da Doce Collin's.
+   Formato: 55 + DDD + número, só dígitos.
+   =========================================================== */
+const WHATSAPP = "5511921492477";
+
+/* Cardápio. Para mudar preço ou sabor, edite só aqui. */
+const CARDAPIO = [
+  {id:'nutella',   nome:'Cookie Nutella',              preco:13.00, foto:'nutella.jpg'},
+  {id:'redvelvet', nome:'Cookie Red Velvet com Ninho', preco:12.00, foto:'red-velvet.jpg'},
+  {id:'pistache',  nome:'Cookie Pistache',             preco:16.50, foto:'pistache.jpg'},
+  {id:'kinder',    nome:'Cookie Kinder Bueno',         preco:17.00, foto:'kinder-bueno.jpg'}
+];
+
+const pedido = { qtd:{}, tipo:'Entrega', pgto:'', troco:'' };
+CARDAPIO.forEach(p=>pedido.qtd[p.id]=0);
+
+const brl = v => 'R$ ' + v.toFixed(2).replace('.', ',');
+const $ = id => document.getElementById(id);
+const val = id => ($(id).value || '').trim();
+
+/* ---------- links diretos de conversa ---------- */
+document.querySelectorAll('[data-wa]').forEach(el=>{
+  el.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(el.dataset.wa);
+  el.target = '_blank';
+  el.rel = 'noopener';
+});
+
+/* ---------- ir até o formulário ---------- */
+function irAoPedido(){
+  $('pedido').scrollIntoView({behavior:'smooth', block:'start'});
+}
+document.querySelectorAll('[data-pedir]').forEach(b=>{
+  b.addEventListener('click', e=>{ e.preventDefault(); irAoPedido(); });
+});
+document.querySelectorAll('[data-add]').forEach(b=>{
+  b.addEventListener('click', e=>{
+    e.preventDefault();
+    pedido.qtd[b.dataset.add]++;
+    render();
+    irAoPedido();
+  });
+});
+document.querySelectorAll('[data-add-todos]').forEach(b=>{
+  b.addEventListener('click', e=>{
+    e.preventDefault();
+    CARDAPIO.forEach(p=>{ if(pedido.qtd[p.id] === 0) pedido.qtd[p.id] = 1; });
+    render();
+    irAoPedido();
+  });
+});
+
+/* ---------- itens ---------- */
+const total     = () => CARDAPIO.reduce((t,p)=>t + p.preco * pedido.qtd[p.id], 0);
+const unidades  = () => CARDAPIO.reduce((t,p)=>t + pedido.qtd[p.id], 0);
+
+function montarItens(){
+  $('pedItens').innerHTML = CARDAPIO.map(p=>`
+    <div class="ped__line">
+      <img src="${p.foto}" alt="">
+      <div class="ped__line-txt"><b>${p.nome}</b><span>${brl(p.preco)} cada</span></div>
+      <div class="qty">
+        <button type="button" aria-label="Remover um ${p.nome}" data-menos="${p.id}">&minus;</button>
+        <b id="q-${p.id}">${pedido.qtd[p.id]}</b>
+        <button type="button" aria-label="Adicionar um ${p.nome}" data-mais="${p.id}">+</button>
+      </div>
+    </div>`).join('');
+
+  $('pedItens').querySelectorAll('[data-mais]').forEach(b=>{
+    b.onclick = ()=>{ pedido.qtd[b.dataset.mais]++; render(); };
+  });
+  $('pedItens').querySelectorAll('[data-menos]').forEach(b=>{
+    b.onclick = ()=>{ const id = b.dataset.menos; if(pedido.qtd[id] > 0) pedido.qtd[id]--; render(); };
+  });
+}
+
+/* ---------- entrega ou retirada ---------- */
+$('fTipo').querySelectorAll('button').forEach(b=>{
+  b.onclick = ()=>{
+    pedido.tipo = b.dataset.tipo;
+    $('fTipo').querySelectorAll('button').forEach(x=>x.classList.toggle('is-on', x === b));
+    const entrega = pedido.tipo === 'Entrega';
+    $('blocoEndereco').hidden = !entrega;
+    $('notaRetirada').hidden  = entrega;
+    $('boxPagamento').hidden  = !entrega;
+    $('boxRetirada').hidden   = entrega;
+    if(!entrega){
+      pedido.pgto = ''; pedido.troco = '';
+      $('fPgto').querySelectorAll('button').forEach(x=>x.classList.remove('is-on'));
+      $('fTroco').querySelectorAll('button').forEach(x=>x.classList.remove('is-on'));
+      $('blocoTroco').hidden = true;
+      $('blocoTrocoValor').hidden = true;
+    }
+    render();
+  };
+});
+
+/* ---------- pagamento ---------- */
+$('fPgto').querySelectorAll('button').forEach(b=>{
+  b.onclick = ()=>{
+    pedido.pgto = b.dataset.pg;
+    $('fPgto').querySelectorAll('button').forEach(x=>x.classList.toggle('is-on', x === b));
+    const dinheiro = pedido.pgto === 'Dinheiro';
+    $('blocoTroco').hidden = !dinheiro;
+    if(!dinheiro){
+      pedido.troco = '';
+      $('fTroco').querySelectorAll('button').forEach(x=>x.classList.remove('is-on'));
+      $('blocoTrocoValor').hidden = true;
+    }
+    render();
+  };
+});
+$('fTroco').querySelectorAll('button').forEach(b=>{
+  b.onclick = ()=>{
+    pedido.troco = b.dataset.troco;
+    $('fTroco').querySelectorAll('button').forEach(x=>x.classList.toggle('is-on', x === b));
+    $('blocoTrocoValor').hidden = pedido.troco !== 'sim';
+    render();
+  };
+});
+
+/* ---------- resumo ---------- */
+function trocoTexto(){
+  if(pedido.troco !== 'sim') return 'não precisa';
+  const v = val('fTrocoValor');
+  if(!v) return 'a combinar';
+  return /r\$/i.test(v) ? v : 'R$ ' + v;
+}
+function montarResumo(){
+  const linhas = [];
+  CARDAPIO.forEach(p=>{
+    if(pedido.qtd[p.id] > 0) linhas.push([`${pedido.qtd[p.id]}x ${p.nome}`, brl(p.preco * pedido.qtd[p.id])]);
+  });
+  if(!linhas.length) linhas.push(['Nenhum cookie escolhido ainda', '']);
+  linhas.push(['Tipo', pedido.tipo]);
+  if(val('fNome'))    linhas.push(['Nome', val('fNome')]);
+  if(pedido.tipo === 'Entrega'){
+    if(val('fBairro')) linhas.push(['Bairro', val('fBairro')]);
+    if(pedido.pgto)    linhas.push(['Pagamento', pedido.pgto]);
+    if(pedido.pgto === 'Dinheiro' && pedido.troco) linhas.push(['Troco', trocoTexto()]);
+  } else {
+    linhas.push(['Pagamento', 'na retirada']);
+  }
+  $('pedResumo').innerHTML = linhas.map(l=>`<div><span>${l[0]}</span><span>${l[1]}</span></div>`).join('');
+}
+
+/* ---------- envio ---------- */
+function erro(msg, foco){
+  const el = $('pedErro');
+  el.textContent = msg;
+  el.classList.add('is-on');
+  if(foco){ $(foco).focus(); $(foco).scrollIntoView({behavior:'smooth', block:'center'}); }
+  return false;
+}
+function valida(){
+  $('pedErro').classList.remove('is-on');
+  if(unidades() === 0)  return erro('Escolha pelo menos um cookie.');
+  if(!val('fNome'))     return erro('Escreva o seu nome.', 'fNome');
+  if(pedido.tipo === 'Entrega'){
+    if(!val('fEndereco')) return erro('Preencha o endereço da entrega.', 'fEndereco');
+    if(!val('fBairro'))   return erro('Preencha o bairro da entrega.', 'fBairro');
+    if(!pedido.pgto)      return erro('Escolha a forma de pagamento.');
+    if(pedido.pgto === 'Dinheiro' && !pedido.troco) return erro('Nos diga se precisa de troco.');
+  }
+  return true;
+}
+$('pedEnviar').onclick = ()=>{
+  if(!valida()) return;
+
+  let t = "*NOVO PEDIDO | Doce Collin's*\n\n*Itens*\n";
+  CARDAPIO.forEach(p=>{
+    if(pedido.qtd[p.id] > 0) t += `${pedido.qtd[p.id]}x ${p.nome} .... ${brl(p.preco * pedido.qtd[p.id])}\n`;
+  });
+  t += `\n*Subtotal:* ${brl(total())}\n\n`;
+  t += `*Nome:* ${val('fNome')}\n*Tipo:* ${pedido.tipo}\n`;
+  if(pedido.tipo === 'Entrega'){
+    t += `*Endereço:* ${val('fEndereco')}\n*Bairro:* ${val('fBairro')}\n*Pagamento:* ${pedido.pgto}\n`;
+    if(pedido.pgto === 'Dinheiro') t += `*Troco:* ${trocoTexto()}\n`;
+    t += `\n_Aguardo a confirmação do valor da entrega._\n`;
+  } else {
+    t += `*Pagamento:* na retirada\n`;
+  }
+  if(val('fObs')) t += `\n*Observações:* ${val('fObs')}\n`;
+
+  window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(t), '_blank');
+};
+
+/* ---------- render ---------- */
+function render(){
+  montarItens();
+  montarResumo();
+  $('pedTotal').textContent = brl(total());
+  const n = unidades();
+  const badge = $('floatBadge');
+  badge.textContent = n;
+  badge.hidden = n === 0;
+  if(n > 0) $('pedErro').classList.remove('is-on');
+}
+['fNome','fEndereco','fBairro','fTrocoValor','fObs'].forEach(id=>{
+  $(id).addEventListener('input', montarResumo);
+});
+render();
+
+/* ---------- extras da página ---------- */
+$('ano').textContent = new Date().getFullYear();
+
+if('IntersectionObserver' in window){
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        e.target.style.transitionDelay = (i*70) + 'ms';
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  },{threshold:.15});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+} else {
+  document.querySelectorAll('.rv').forEach(el=>el.classList.add('in'));
+}
+</script>
+</body>
+</html>
